@@ -12,10 +12,10 @@
 \tcbuselibrary{skins}
 \usepackage{tikz}
 
-\setmainfont{IosevkaTerm NFM}
-\setmonofont{IosevkaTerm NFM}
-\setsansfont{IosevkaTerm NFM}
-\setromanfont{IosevkaTerm NFM Italic}
+\setmainfont{Iosevka NFM}
+\setmonofont{Iosevka NFM}
+\setsansfont{Iosevka NFM}
+\setromanfont{Iosevka NFM Italic}
 \setmathfont{Latin Modern Math}
 
 \usetheme{Warsaw}
@@ -86,7 +86,7 @@
         \hbox{%
                 \begin{beamercolorbox}[wd=.72\paperwidth,ht=2.8ex,dp=1.2ex,leftskip=1em]{title
                         in head/foot}%
-                        \insertshorttitle
+                        \inserttitle
                 \end{beamercolorbox}%
                 \begin{beamercolorbox}[wd=.14\paperwidth,ht=2.8ex,dp=1.2ex,center]{author
                         in head/foot}%
@@ -131,8 +131,8 @@
         bottom=2mm
 }
 
-\title[Method of Exhaustion]{The Method of Exhaustion in Ancient Greek Mathematics}
-\subtitle{How Greek Geometry Learned to Measure Curved Figures Without Calculus}
+\title[Method of Exhaustion]{The Method of Exhaustion}
+\subtitle{How Ancient Greek Geometry Bounded the Infinite}
 
 \author{Pavel Shago}
 
@@ -142,238 +142,350 @@
         History of Mathematics in English
 }
 
-\date{\small April 24}
+\date{\small April 24, 2026}
 
 \begin{document}
 
 \frame{\titlepage}
 
-\begin{frame}{The Central Question}
-        \Large
-        How can we measure a curved figure using only straight lines?
-
-        \vspace{0.6cm}
-        \normalsize
-        Ancient Greek mathematicians could handle triangles, polygons and similar figures. But curves created a conceptual barrier:
-        \begin{itemize}
-                \item What is the exact area of a circle?
-                \item What is the exact area under a parabola?
-                \item What is the exact volume of a sphere?
-        \end{itemize}
+\begin{frame}{A Number That Was Not a Number}
+        A Pythagorean drew the diagonal of a unit square and asked
+        for its length.
 
         \vspace{0.3cm}
-        \textbf{The breakthrough:} reduce the curved problem to a controlled sequence of polygonal approximations.
-\end{frame}
+        \[
+                \text{diagonal} = \sqrt{2}.
+        \]
 
-\begin{frame}{The Barrier: Curves Were Not Polygons}
-        Greek geometry was powerful, but it was built around finite constructions.
+        \vspace{0.2cm}
+        No ratio of integers produces it. For a school that believed
+        \emph{every magnitude is a ratio of integers}, this was a
+        collapse, not a curiosity.
 
         \vspace{0.4cm}
+        \begin{shadowbox}
+                And this was the \emph{easy} case. Now ask for the
+                ratio of a circle's circumference to its diameter.
+                Not a ratio of integers. Not a root of a polynomial.
+                Not even constructible with straightedge and compass.
+
+                \vspace{0.2cm}
+                How do you prove \emph{anything} about the area of a
+                circle in a geometry that forbids infinity as an object?
+        \end{shadowbox}
+\end{frame}
+
+\begin{frame}{The Barrier, Stated Precisely}
+        Greek geometry had two tools for comparing figures:
+
+        \vspace{0.3cm}
         \begin{columns}
                 \begin{column}{0.48\textwidth}
-                        \textbf{Easy to control}
-                        \begin{itemize}
-                                \item triangles
-                                \item rectangles
-                                \item polygons
-                                \item ratios of similar figures
-                        \end{itemize}
+                        \textbf{Direct comparison}\\
+                        Cut a polygon into pieces, rearrange into
+                        another polygon of known area.
                 \end{column}
                 \begin{column}{0.48\textwidth}
-                        \textbf{Hard to control}
-                        \begin{itemize}
-                                \item circles
-                                \item spheres
-                                \item cones
-                                \item parabolic segments
-                        \end{itemize}
+                        \textbf{Similarity ratios}\\
+                        Two figures of the same shape: areas in ratio
+                        of squares on linear parts.
                 \end{column}
         \end{columns}
 
         \vspace{0.5cm}
-        A numerical approximation was not enough. Greek mathematics demanded a proof.
-\end{frame}
+        Both are finite. Neither works for a circle, a parabolic
+        segment, or a sphere.
 
-\begin{frame}{Greek Meta-Mathematics}
-        The method of exhaustion was possible because of a specific idea of mathematical knowledge.
+        \vspace{0.4cm}
+        Antiphon (5th c.\,BCE) proposed: inscribe polygons of
+        doubling sides until they \emph{become} the circle. The
+        Greeks rejected this. ``Eventually equals'' is a claim about
+        infinity --- and infinity is not an object of proof.
 
         \vspace{0.3cm}
-        \begin{itemize}
-                \item Mathematics was primarily \textbf{geometry of magnitudes}, not algebraic symbolism.
-                \item A result had to be established by \textbf{deductive proof}.
-                \item Curved objects had to be compared with simpler objects whose areas or volumes were already known.
-                \item Infinite processes were avoided as objects, but could be controlled through finite contradiction arguments.
-        \end{itemize}
-
-        \vspace{0.4cm}
-        \textbf{Key idea:} do not ``sum infinitely many pieces'' directly. Prove that any remaining error can be made smaller than any assigned magnitude.
+        \textbf{The real problem was proof-theoretic}, not numerical.
 \end{frame}
 
-\begin{frame}{Eudoxus' Move: Exhaust the Difference}
-        The method is traditionally associated with Eudoxus and later appears systematically in Euclid and Archimedes.
+\begin{frame}{Eudoxus Rebuilds the Foundation}
+        Eudoxus of Cnidus ($\sim$390--337\,BCE) answered with a new
+        definition of equality of ratios of magnitudes (Euclid,
+        \emph{Elements}, Book V, Def.~5):
+
+        \vspace{0.2cm}
+        \begin{shadowbox}
+                $a:b = c:d$ iff for all positive integers $m,n$,
+                \[
+                        ma > nb \iff mc > nd,
+                        \qquad
+                        ma = nb \iff mc = nd.
+                \]
+        \end{shadowbox}
+
+        \vspace{0.2cm}
+        Two ratios are equal iff they agree on \emph{every} rational
+        test. The ratio is defined by its behaviour against all
+        rationals --- no numerical value is ever produced.
+
+        \vspace{0.2cm}
+        \textcolor{TealThr}{\textbf{Modern echo.}} This is Dedekind's
+        construction of the real numbers (1872). Eudoxus anticipated
+        it by 2200 years.
+\end{frame}
+
+\begin{frame}{Controlling the Infinite With the Finite}
+        One technical lemma does the heavy lifting (\emph{Elements},
+        Book X, Prop.~1):
+
+        \vspace{0.2cm}
+        \begin{shadowbox}
+                If from any magnitude one subtracts at least half,
+                then from the remainder at least half, and so on, the
+                remainder eventually becomes less than any given
+                magnitude of the same kind.
+        \end{shadowbox}
+
+        \vspace{0.2cm}
+        Modern restatement: for every $\varepsilon>0$ and every $M$,
+        there exists $n$ with $\big(\tfrac{1}{2}\big)^{n} M < \varepsilon$.
+
+        \vspace{0.2cm}
+        The statement is \emph{finite}. It never says ``as $n \to
+        \infty$.'' It says: \textbf{for every tolerance, eventually}.
+
+        \vspace{0.2cm}
+        \textcolor{TealThr}{\textbf{Modern echo.}} The
+        $\varepsilon$-$\delta$ discipline of Cauchy (1821) and
+        Weierstrass, 2300 years early.
+\end{frame}
+
+\begin{frame}{The Exhaustion Schema}
+        To prove $\operatorname{Area}(\text{curved}) = A$:
+
+        \begin{block}{Upper branch}
+                Suppose the area exceeds $A$. Inscribe polygons,
+                halving the uncovered region each step, until the
+                remainder is less than (area~$-\,A$). The inscribed
+                polygon then has area greater than $A$ ---
+                impossible. Contradiction.
+        \end{block}
+
+        \begin{block}{Lower branch}
+                Suppose the area is less than $A$. Circumscribe
+                polygons; their excess shrinks below $(A -
+                \text{area})$. Same contradiction, from the other side.
+        \end{block}
+
+        Therefore the area equals $A$. \textbf{No limit is ever
+        taken.} The word ``infinite'' does not appear in the proof.
+
+        \vspace{0.1cm}
+        \textcolor{TealThr}{\textbf{Modern echo.}} Riemann
+        integration: $\underline{S}_n \le \int f \le \overline{S}_n$,
+        and the gap shrinks.
+\end{frame}
+
+\begin{frame}{Euclid Applies the Machine}
+        \emph{Elements} XII.2:
+        \[
+                \frac{\operatorname{Area}(C_1)}{\operatorname{Area}(C_2)}
+                \;=\; \frac{d_1^{\,2}}{d_2^{\,2}}.
+        \]
+
+        \vspace{0.3cm}
+        Notice what this result \emph{is} and \emph{is not}:
+        \begin{itemize}
+                \item \textbf{It is not} a value of $\pi$. No number
+                        for circle area appears.
+                \item \textbf{It is} a structural law: the area of
+                        any circle scales as the square of any linear dimension.
+        \end{itemize}
+
+        \vspace{0.3cm}
+        Euclid proved how circles behave \emph{relative to each
+        other}, without ever computing the constant that relates a
+        circle to a square. The law is invariant; the constant is a
+        separate, harder question.
+
+        \vspace{0.3cm}
+        \textcolor{TealThr}{\textbf{Modern echo.}} This is
+        dimensional analysis: $A \sim L^2$ as a provable statement of
+        geometry, not a convention of units.
+\end{frame}
+
+\begin{frame}{Archimedes Traps \texorpdfstring{$\pi$}{pi} Between Two Polygons}
+        \begin{columns}
+                \begin{column}{0.55\textwidth}
+                        Archimedes (\emph{Measurement of a Circle},
+                        $\sim$250\,BCE) applied exhaustion to a
+                        96-gon --- six doublings from a hexagon:
+
+                        \vspace{0.2cm}
+                        \[
+                                3 + \tfrac{10}{71} \;<\; \pi \;<\; 3
+                                + \tfrac{1}{7}
+                        \]
+                        \[
+                                3.14085\ldots \;<\; \pi \;<\; 3.14286\ldots
+                        \]
+
+                        \vspace{0.15cm}
+                        Four-digit accuracy with a \emph{proven
+                        enclosure}. Not a measurement --- a theorem
+                        about the location of $\pi$.
+                \end{column}
+                \begin{column}{0.45\textwidth}
+                        \centering
+                        \begin{tikzpicture}[scale=0.9]
+                                \def\R{1.6}
+                                \pgfmathsetmacro{\Rc}{\R/cos(30)}
+                                \draw[GreenDark, thick] (0,0) circle (\R);
+                                \draw[AccentGold, thick]
+                                (30:\R) -- (90:\R) -- (150:\R) --
+                                (210:\R) -- (270:\R) -- (330:\R) -- cycle;
+                                \draw[TealThr, thick]
+                                (0:\Rc) -- (60:\Rc) -- (120:\Rc) --
+                                (180:\Rc) -- (240:\Rc) -- (300:\Rc) -- cycle;
+                                \node[text=AccentGold,
+                                font=\scriptsize] at (0,-2.2)
+                                {inscribed: lower bound};
+                                \node[text=TealThr, font=\scriptsize]
+                                at (0,-2.5) {circumscribed: upper bound};
+                        \end{tikzpicture}
+                \end{column}
+        \end{columns}
+
+        \vspace{0.15cm}
+        \textcolor{TealThr}{\textbf{Modern echo.}} Interval
+        arithmetic and verified numerics: every computed value comes
+        with a proven enclosure. Archimedes' method, on hardware.
+\end{frame}
+
+\begin{frame}{What Archimedes Did Not Publish}
+        Archimedes wrote a private letter to Eratosthenes ---
+        \emph{The Method of Mechanical Theorems} --- lost for over
+        1000 years, recovered in 1906 from a Byzantine palimpsest.
+
+        \vspace{0.2cm}
+        In it, he sliced figures into \emph{indivisibles} (infinitely
+        many parallel lines) and \emph{balanced them on a lever} to
+        guess areas and volumes. Mechanical intuition, not geometric proof.
+
+        \vspace{0.2cm}
+        \begin{shadowbox}
+                ``It is easier to find the proof once one has
+                acquired some knowledge of the questions by the
+                method.'' \hfill --- Archimedes to Eratosthenes
+        \end{shadowbox}
+
+        \vspace{0.15cm}
+        Archimedes used indivisibles to \textbf{discover}, then
+        rewrote results as exhaustion proofs to \textbf{publish}.
+        Discovery and certification separated --- the same split
+        between numerical experiment and formal verification today.
+\end{frame}
+
+\begin{frame}{A Geometric Series, Without Summing Infinitely}
+        \emph{Quadrature of the Parabola}: the area of a parabolic
+        segment equals $\tfrac{4}{3}$ of its inscribed triangle $T$.
+
+        \vspace{0.3cm}
+        Modern view:
+        \[
+                T\Big(1 + \tfrac{1}{4} + \tfrac{1}{16} +
+                \tfrac{1}{64} + \cdots\Big) = \tfrac{4}{3}\,T.
+        \]
+
+        \vspace{0.3cm}
+        Archimedes' view: for every $n$, he filled the segment with
+        triangles of total area
+        \[
+                T\Big(1 + \tfrac{1}{4} + \cdots + \tfrac{1}{4^{\,n}}\Big)
+                \quad\text{with remainder at most}\quad
+                \tfrac{1}{3}\cdot\tfrac{1}{4^{\,n}}\,T.
+        \]
+
+        \vspace{0.2cm}
+        He never wrote an infinite sum. He wrote a \emph{finite
+        identity} plus an \emph{error bound that can be driven below
+        any magnitude}. Same answer; no appeal to infinity;
+        bulletproof Greek proof.
+
+        \vspace{0.3cm}
+        \textcolor{TealThr}{\textbf{Modern echo.}} Partial sum plus
+        remainder bound is still how convergence is proved.
+\end{frame}
+
+\begin{frame}{The Meta-Mathematical Mechanism}
+        Three commitments of Greek mathematics made the method possible:
 
         \vspace{0.4cm}
-        \textbf{Basic scheme:}
         \begin{enumerate}
-                \item Put a polygonal figure inside the curved figure.
-                \item Improve the polygon so that it fills more of the curved figure.
-                \item Show that the leftover area or volume can be made arbitrarily small.
-                \item Use contradiction to prove the exact result.
+                \item \textbf{Magnitude over number.} Ratios of
+                        geometric magnitudes, not decimal values,
+                        were the primary objects. Irrationals were
+                        not a problem to be solved but a type to be handled.
+
+                        \vspace{0.15cm}
+                \item \textbf{Proof over computation.} An
+                        approximation without a certified error bound
+                        was worthless. A bound without a computed
+                        value was a theorem.
+
+                        \vspace{0.15cm}
+                \item \textbf{Finite control over infinite process.}
+                        A shrinking sequence is handled by the law it
+                        obeys, never by the limit point it approaches.
         \end{enumerate}
 
-        \vspace{0.4cm}
-        The figure is not literally destroyed. The \textbf{possible error} is exhausted.
+        \vspace{0.3cm}
+        The method of exhaustion is these three commitments made
+        procedural. Remove any one and the method collapses: it is
+        inseparable from the philosophy of proof that produced it.
 \end{frame}
 
-\begin{frame}{Euclid: Turning the Method into Rigour}
-        Euclid's \emph{Elements}, Book XII, uses exhaustion to prove results about circles, cones, cylinders and spheres.
+\begin{frame}{Modern Descendants}
+        The schema is the operational core of much of modern mathematics:
 
-        \vspace{0.4cm}
-        Example result:
-        \[
-                \frac{\text{area of circle } C_1}{\text{area of circle } C_2}
-                =
-                \frac{d_1^2}{d_2^2}.
-        \]
-
-        \vspace{0.4cm}
-        In modern language, this says that circle areas scale like the square of their diameters.
-
-        \vspace{0.3cm}
-        \textbf{Important:} this is not just measurement. It is a proof that all circles obey the same area law.
-\end{frame}
-
-\begin{frame}{Archimedes and the Circle}
-        Archimedes used polygonal bounds to trap the circumference of a circle.
-
-        \vspace{0.3cm}
+        \vspace{0.15cm}
         \begin{itemize}
-                \item An inscribed polygon gives a lower bound.
-                \item A circumscribed polygon gives an upper bound.
-                \item Increasing the number of sides tightens the bounds.
+                \item \textbf{Real numbers} (Dedekind, 1872) ---
+                        direct formalisation of Eudoxus' ratios.
+                \item \textbf{$\varepsilon$-$\delta$ analysis}
+                        (Cauchy, Weierstrass) --- the Archimedean
+                        lemma as the definition of limit.
+                \item \textbf{Riemann integration} --- the curved
+                        region bracketed by lower and upper sums; the
+                        gap shrinks.
+                \item \textbf{Interval arithmetic \& verified
+                        numerics} --- Archimedes' two-sided
+                        enclosure, now standard in computer-assisted proofs.
+                \item \textbf{A posteriori error estimates in FEM}
+                        --- approximate the solution, certify a
+                        bound. Industrial scale.
         \end{itemize}
 
-        \vspace{0.4cm}
-        His famous estimate:
-        \[
-                3 + \frac{10}{71} < \pi < 3 + \frac{1}{7}.
-        \]
-
-        \vspace{0.3cm}
-        \textbf{Suggested visual:} circle with an inscribed and circumscribed regular polygon; then show the same circle with more sides.
-\end{frame}
-
-\begin{frame}{Archimedes and the Parabola}
-        In \emph{Quadrature of the Parabola}, Archimedes proved that a parabolic segment has area
-        \[
-                \text{area of segment} = \frac{4}{3}\cdot \text{area of the main triangle}.
-        \]
-
-        \vspace{0.4cm}
-        The strategy:
-        \begin{itemize}
-                \item inscribe a triangle in the parabolic segment;
-                \item add smaller triangles in the remaining gaps;
-                \item show that the total uncovered area becomes negligible;
-                \item conclude the exact area by exhaustion.
-        \end{itemize}
-
-        \vspace{0.3cm}
-        This is close in spirit to summing a geometric series, but it is expressed as Greek geometry.
-\end{frame}
-
-\begin{frame}{Why This Was a Breakthrough}
-        The method of exhaustion crossed a major boundary:
-
-        \vspace{0.3cm}
-        \begin{block}{Before}
-                Exact geometry worked best for straight-edged figures.
-        \end{block}
-
-        \begin{block}{After}
-                Curved figures could be treated with the same deductive seriousness.
-        \end{block}
-
-        \vspace{0.4cm}
-        \textbf{The deeper innovation:} Greek mathematicians created a rigorous way to reason about limiting processes without having a modern concept of limit.
-\end{frame}
-
-\begin{frame}{Not Calculus Yet}
-        It is tempting to call exhaustion ``ancient integral calculus'', but this is only partly correct.
-
-        \vspace{0.3cm}
-        \begin{columns}
-                \begin{column}{0.48\textwidth}
-                        \textbf{Similar to calculus}
-                        \begin{itemize}
-                                \item approximation by simpler pieces
-                                \item error control
-                                \item exact areas and volumes
-                        \end{itemize}
-                \end{column}
-                \begin{column}{0.48\textwidth}
-                        \textbf{Different from calculus}
-                        \begin{itemize}
-                                \item no symbolic limit notation
-                                \item no general integral operator
-                                \item proof is case-by-case and geometric
-                        \end{itemize}
-                \end{column}
-        \end{columns}
-
-        \vspace{0.5cm}
-        Exhaustion was not a calculus algorithm. It was a standard of proof for difficult geometric results.
-\end{frame}
-
-\begin{frame}{The Role of Meta-Mathematics}
-        The breakthrough depended on how Greek mathematicians understood mathematics itself.
-
-        \vspace{0.4cm}
-        \begin{itemize}
-                \item They separated \textbf{exact proof} from practical measurement.
-                \item They treated areas and volumes as \textbf{magnitudes} comparable by ratios.
-                \item They accepted indirect proof as a legitimate tool.
-                \item They controlled the infinite through finite logical arguments.
-        \end{itemize}
-
-        \vspace{0.4cm}
-        So the method of exhaustion was not merely a technique. It was a new way of making curved geometry rigorous.
-\end{frame}
-
-\begin{frame}{Afterlife of the Idea}
-        The method of exhaustion did not disappear.
-
-        \vspace{0.3cm}
-        \begin{itemize}
-                \item It influenced later approaches to area and volume.
-                \item It anticipated central ideas of integral calculus.
-                \item It showed that approximation and exact proof can work together.
-        \end{itemize}
-
-        \vspace{0.4cm}
-        \textbf{Historical bridge:}
-        \[
-                \text{Greek exhaustion} \quad \longrightarrow \quad \text{early modern indivisibles} \quad \longrightarrow \quad \text{integral calculus}
-        \]
-
-        \vspace{0.3cm}
-        The ancient Greeks did not have calculus, but they created one of its deepest ancestors.
+        \vspace{0.15cm}
+        In every case the ancient pattern is preserved: approximate
+        by simpler objects, and \emph{prove the error shrinks}.
 \end{frame}
 
 \begin{frame}{Conclusion}
-        \Large
-        The method of exhaustion solved a problem that was both technical and philosophical.
-
-        \vspace{0.5cm}
-        \normalsize
-        \begin{itemize}
-                \item \textbf{Barrier:} curved figures resisted finite geometric measurement.
-                \item \textbf{Breakthrough:} polygonal approximations with rigorous error control.
-                \item \textbf{Meta-mathematics:} proof, ratios, contradiction and exactness mattered more than numerical approximation.
-        \end{itemize}
+        The method of exhaustion is often called ``ancient integral
+        calculus.'' That label is too loose and too modest.
 
         \vspace{0.4cm}
-        \textbf{Final thesis:} Greek mathematics overcame curves by turning approximation into proof.
+        \begin{shadowbox}
+                The Greek breakthrough was not a calculus algorithm.
+                It was a \textbf{proof discipline for infinite
+                processes that never admits infinity as an object}.
+        \end{shadowbox}
+
+        \vspace{0.4cm}
+        That discipline --- approximate, bound, contradict --- is
+        still the proof discipline of modern numerical analysis and
+        real analysis. Greek mathematics did not find a way to
+        \emph{compute} curves; it found a way to \emph{reason} about
+        them. The computing came later; the reasoning is still ours.
 \end{frame}
 
 {
