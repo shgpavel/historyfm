@@ -29,7 +29,7 @@
 \definecolor{GreenAlt}{RGB}{129,199,132}
 
 \definecolor{GreenOne}{RGB}{232,245,233}
-\definecolor{OrangeTwo}{RGB}{255,167,38}
+\definecolor{GreenTwo}{RGB}{200,200,200}
 \definecolor{TealThr}{RGB}{0,137,123}
 
 \definecolor{NearBlack}{RGB}{26,71,42}
@@ -63,7 +63,7 @@
 
 \setbeamercolor{title in head/foot}{fg=white,bg=GreenDark}
 \setbeamercolor{author in head/foot}{fg=white,bg=NearBlack}
-\setbeamercolor{date in head/foot}{fg=white,bg=OrangeTwo}
+\setbeamercolor{slidecnt in head/foot}{fg=white,bg=GreenTwo}
 
 \newlength{\fttileft}
 \setlength{\fttileft}{\dimexpr(\paperwidth-\textwidth)/2\relax}
@@ -92,7 +92,7 @@
                         in head/foot}%
                         \insertshortauthor
                 \end{beamercolorbox}%
-                \begin{beamercolorbox}[wd=.14\paperwidth,ht=2.8ex,dp=1.2ex,center]{date
+                \begin{beamercolorbox}[wd=.14\paperwidth,ht=2.8ex,dp=1.2ex,center]{slidecnt
                         in head/foot}%
                         \insertframenumber/\inserttotalframenumber
                 \end{beamercolorbox}%
@@ -131,8 +131,8 @@
         bottom=2mm
 }
 
-\title{The Method of Exhaustion in Greek Mathematics}
-\subtitle{How Greek Geometry Learned to Handle Curved Figures Rigorously}
+\title[Method of Exhaustion]{The Method of Exhaustion in Ancient Greek Mathematics}
+\subtitle{How Greek Geometry Learned to Measure Curved Figures Without Calculus}
 
 \author{Pavel Shago}
 
@@ -148,254 +148,232 @@
 
 \frame{\titlepage}
 
-\begin{frame}{Thesis of the Talk}
-        \begin{shadowbox2}
-                \small In one sentence: the Greeks overcame a
-                geometric barrier by inventing a rigorous way to
-                control an apparently infinite process through finite
-                constructions.
-        \end{shadowbox2}
-        \vspace{0.4em}
-        \begin{itemize}
-                \item \textbf{Historical period and region:}
-                        Classical and Hellenistic Greece, roughly
-                        5th--3rd century BCE.
-                \item \textbf{Barrier:} Greek mathematicians needed a
-                        rigorous way to compare and measure
-                        \emph{curved} figures such as circles,
-                        segments, and spheres.
-                \item \textbf{Breakthrough:} the \textbf{method of
-                        exhaustion}, associated above all with
-                        \textbf{Eudoxus} and later developed by
-                        \textbf{Archimedes}.
-                \item \textbf{Main claim:} this breakthrough became
-                        possible because Greek mathematics treated
-                        proof, definition, and logical deduction as
-                        the foundation of mathematical knowledge.
-        \end{itemize}
-\end{frame}
+\begin{frame}{The Central Question}
+        \Large
+        How can we measure a curved figure using only straight lines?
 
-\begin{frame}{What Was the Problem?}
+        \vspace{0.6cm}
+        \normalsize
+        Ancient Greek mathematicians could handle triangles, polygons and similar figures. But curves created a conceptual barrier:
         \begin{itemize}
-                \item For polygons, areas could be studied by
-                        cutting, rearranging, and comparing sides.
-                \item But what about a \textbf{circle}, a
-                        \textbf{sphere}, or the \textbf{segment of a
-                        parabola}? These are not made of straight edges.
-                \item Simple visual intuition was not enough for
-                        Greek standards of proof.
-                \item The key difficulty was this: \textbf{how can
-                                one reason rigorously about a figure that
-                                cannot be exactly decomposed into finitely
-                        many straight pieces?}
+                \item What is the exact area of a circle?
+                \item What is the exact area under a parabola?
+                \item What is the exact volume of a sphere?
         \end{itemize}
 
-        \vspace{0.6em}
-        \begin{shadowbox}
-                \small \textbf{Barrier:} geometry had reached the
-                point where old finite methods were no longer
-                sufficient, but a fully developed theory of limits
-                did not yet exist.
-        \end{shadowbox}
+        \vspace{0.3cm}
+        \textbf{The breakthrough:} reduce the curved problem to a controlled sequence of polygonal approximations.
 \end{frame}
 
-\begin{frame}{The Greek Mathematical Mindset}
-        \begin{itemize}
-                \item Greek mathematics valued \textbf{proof} over
-                        successful calculation.
-                \item Mathematical objects were understood mainly in
-                        \textbf{geometric} terms: lengths, ratios,
-                        areas, volumes.
-                \item Infinity was treated cautiously. Greek
-                        mathematicians usually accepted only
-                        \textbf{potential infinity}: a process may
-                        continue indefinitely, but one should avoid
-                        assuming a completed infinite object.
-                \item This is the \textbf{metamathematical
-                        background} of the method of exhaustion: one
-                        must justify every claim by a chain of
-                        definitions, propositions, and contradictions.
-        \end{itemize}
-\end{frame}
+\begin{frame}{The Barrier: Curves Were Not Polygons}
+        Greek geometry was powerful, but it was built around finite constructions.
 
-\begin{frame}{Why Earlier Methods Were Not Enough}
-        \begin{itemize}
-                \item A rough measurement of a circle can be obtained
-                        by drawing polygons inside it.
-                \item However, a rough approximation is not yet a
-                        \textbf{proof}.
-                \item Greek mathematics needed a method showing that
-                        the gap between the polygon and the curved
-                        figure can be made \textbf{smaller than any
-                        assigned magnitude}.
-                \item In other words, the problem was not only
-                        computational but also \textbf{logical}: why
-                        is approximation good enough to establish an
-                        exact theorem?
-        \end{itemize}
-
-        \vspace{0.6em}
-        \begin{shadowbox2}
-                \small This is precisely where the method of exhaustion enters.
-        \end{shadowbox2}
-\end{frame}
-
-\begin{frame}{The Core Idea of Exhaustion}
-        \begin{columns}[T]
-                \column{0.56\textwidth}
-                \begin{itemize}
-                        \item Start with a figure whose area or
-                                volume is hard to determine exactly.
-                        \item Construct a sequence of simpler figures
-                                inside it (or around it), usually
-                                polygons or polyhedra.
-                        \item Repeatedly refine them so that the
-                                remaining difference becomes smaller
-                                and smaller.
-                        \item Then use a \textbf{proof by
-                                contradiction}: assume the target
-                                magnitude differs from the proposed
-                                value by some positive amount; show
-                                that the refined construction
-                                eventually makes this impossible.
-                \end{itemize}
-
-                \column{0.44\textwidth}
-                \begin{shadowbox}
-                        \centering
-                        \vspace{0.2em}
-                        \large $A_{\text{inner}} < A_{\text{curve}} <
-                        A_{\text{outer}}$
-
-                        \vspace{0.4em}
-                        \footnotesize Refine the bounds until no
-                        positive gap can remain.
-                \end{shadowbox}
-        \end{columns}
-\end{frame}
-
-\begin{frame}{Eudoxus: The Conceptual Breakthrough}
-        \begin{itemize}
-                \item \textbf{Eudoxus of Cnidus} is usually credited
-                        with giving the method its rigorous form.
-                \item His theory of proportion allowed Greek
-                        mathematicians to compare magnitudes without
-                        reducing everything to arithmetic with numbers.
-                \item This mattered because Greek geometry had
-                        already encountered \textbf{incommensurable
-                        magnitudes}; not every ratio could be
-                        expressed by whole numbers.
-                \item The method of exhaustion therefore rests on a
-                        deeper foundation: rigorous comparison of
-                        magnitudes, not merely practical measurement.
-        \end{itemize}
-
-        \vspace{0.5em}
-        \begin{shadowbox}
-                \small So the breakthrough was not a trick, but a new
-                standard of reasoning.
-        \end{shadowbox}
-\end{frame}
-
-\begin{frame}{Euclid and the Formal Framework}
-        \begin{itemize}
-                \item In \emph{Elements}, especially Book V and Book
-                        XII, the method appears in a more systematic
-                        and axiomatic form.
-                \item Euclid does not speak in the language of modern
-                        limits, but he provides a framework in which
-                        repeated subdivision and comparison become
-                        fully rigorous.
-                \item This shows the Greek ideal clearly: mathematics
-                        should proceed from definitions and
-                        propositions, not from numerical guesswork.
-        \end{itemize}
-
-        \vspace{0.6em}
-        \begin{shadowbox}
-                \small \textbf{Interpretation:} the method of
-                exhaustion is a product of Greek
-                \emph{metamathematics} --- of their beliefs about
-                what counts as a legitimate mathematical argument.
-        \end{shadowbox}
-\end{frame}
-
-\begin{frame}{Archimedes: Exhaustion in Action}
-        \begin{columns}[T]
-                \column{0.58\textwidth}
-                \begin{itemize}
-                        \item \textbf{Archimedes} used the method
-                                with extraordinary power.
-                        \item He applied it to the area of a circle,
-                                the volume and surface area of a
-                                sphere, and the quadrature of the parabola.
-                        \item In modern language, his arguments often
-                                look strikingly close to integral reasoning.
-                        \item But the important historical point is
-                                this: Archimedes remained entirely
-                                within the Greek demand for geometric rigor.
-                \end{itemize}
-
-                \column{0.42\textwidth}
-                \begin{shadowbox}
-                        \small \textbf{Examples:}
-                        \vspace{0.2em}
-                        \footnotesize
+        \vspace{0.4cm}
+        \begin{columns}
+                \begin{column}{0.48\textwidth}
+                        \textbf{Easy to control}
                         \begin{itemize}
-                                \item inscribed and circumscribed
-                                        polygons for the circle;
-                                \item successive triangles in the
-                                        quadrature of the parabola.
+                                \item triangles
+                                \item rectangles
+                                \item polygons
+                                \item ratios of similar figures
                         \end{itemize}
-                \end{shadowbox}
+                \end{column}
+                \begin{column}{0.48\textwidth}
+                        \textbf{Hard to control}
+                        \begin{itemize}
+                                \item circles
+                                \item spheres
+                                \item cones
+                                \item parabolic segments
+                        \end{itemize}
+                \end{column}
         \end{columns}
+
+        \vspace{0.5cm}
+        A numerical approximation was not enough. Greek mathematics demanded a proof.
 \end{frame}
 
-\begin{frame}{Why Was This a Real Breakthrough?}
+\begin{frame}{Greek Meta-Mathematics}
+        The method of exhaustion was possible because of a specific idea of mathematical knowledge.
+
+        \vspace{0.3cm}
+        \begin{itemize}
+                \item Mathematics was primarily \textbf{geometry of magnitudes}, not algebraic symbolism.
+                \item A result had to be established by \textbf{deductive proof}.
+                \item Curved objects had to be compared with simpler objects whose areas or volumes were already known.
+                \item Infinite processes were avoided as objects, but could be controlled through finite contradiction arguments.
+        \end{itemize}
+
+        \vspace{0.4cm}
+        \textbf{Key idea:} do not ``sum infinitely many pieces'' directly. Prove that any remaining error can be made smaller than any assigned magnitude.
+\end{frame}
+
+\begin{frame}{Eudoxus' Move: Exhaust the Difference}
+        The method is traditionally associated with Eudoxus and later appears systematically in Euclid and Archimedes.
+
+        \vspace{0.4cm}
+        \textbf{Basic scheme:}
         \begin{enumerate}
-                \item It made it possible to prove exact results
-                        about curved figures.
-                \item It showed how an indefinitely repeatable
-                        process can produce certainty without
-                        invoking a completed actual infinity.
-                \item It connected difficult geometric problems with
-                        a general logical method.
+                \item Put a polygonal figure inside the curved figure.
+                \item Improve the polygon so that it fills more of the curved figure.
+                \item Show that the leftover area or volume can be made arbitrarily small.
+                \item Use contradiction to prove the exact result.
         \end{enumerate}
 
-        \vspace{0.7em}
-        \begin{shadowbox2}
-                \small \textbf{Main point:} the method of exhaustion
-                overcame not only a geometric obstacle, but also a
-                philosophical one --- how to speak rigorously about
-                the infinitely divisible.
-        \end{shadowbox2}
+        \vspace{0.4cm}
+        The figure is not literally destroyed. The \textbf{possible error} is exhausted.
+\end{frame}
+
+\begin{frame}{Euclid: Turning the Method into Rigour}
+        Euclid's \emph{Elements}, Book XII, uses exhaustion to prove results about circles, cones, cylinders and spheres.
+
+        \vspace{0.4cm}
+        Example result:
+        \[
+                \frac{\text{area of circle } C_1}{\text{area of circle } C_2}
+                =
+                \frac{d_1^2}{d_2^2}.
+        \]
+
+        \vspace{0.4cm}
+        In modern language, this says that circle areas scale like the square of their diameters.
+
+        \vspace{0.3cm}
+        \textbf{Important:} this is not just measurement. It is a proof that all circles obey the same area law.
+\end{frame}
+
+\begin{frame}{Archimedes and the Circle}
+        Archimedes used polygonal bounds to trap the circumference of a circle.
+
+        \vspace{0.3cm}
+        \begin{itemize}
+                \item An inscribed polygon gives a lower bound.
+                \item A circumscribed polygon gives an upper bound.
+                \item Increasing the number of sides tightens the bounds.
+        \end{itemize}
+
+        \vspace{0.4cm}
+        His famous estimate:
+        \[
+                3 + \frac{10}{71} < \pi < 3 + \frac{1}{7}.
+        \]
+
+        \vspace{0.3cm}
+        \textbf{Suggested visual:} circle with an inscribed and circumscribed regular polygon; then show the same circle with more sides.
+\end{frame}
+
+\begin{frame}{Archimedes and the Parabola}
+        In \emph{Quadrature of the Parabola}, Archimedes proved that a parabolic segment has area
+        \[
+                \text{area of segment} = \frac{4}{3}\cdot \text{area of the main triangle}.
+        \]
+
+        \vspace{0.4cm}
+        The strategy:
+        \begin{itemize}
+                \item inscribe a triangle in the parabolic segment;
+                \item add smaller triangles in the remaining gaps;
+                \item show that the total uncovered area becomes negligible;
+                \item conclude the exact area by exhaustion.
+        \end{itemize}
+
+        \vspace{0.3cm}
+        This is close in spirit to summing a geometric series, but it is expressed as Greek geometry.
+\end{frame}
+
+\begin{frame}{Why This Was a Breakthrough}
+        The method of exhaustion crossed a major boundary:
+
+        \vspace{0.3cm}
+        \begin{block}{Before}
+                Exact geometry worked best for straight-edged figures.
+        \end{block}
+
+        \begin{block}{After}
+                Curved figures could be treated with the same deductive seriousness.
+        \end{block}
+
+        \vspace{0.4cm}
+        \textbf{The deeper innovation:} Greek mathematicians created a rigorous way to reason about limiting processes without having a modern concept of limit.
+\end{frame}
+
+\begin{frame}{Not Calculus Yet}
+        It is tempting to call exhaustion ``ancient integral calculus'', but this is only partly correct.
+
+        \vspace{0.3cm}
+        \begin{columns}
+                \begin{column}{0.48\textwidth}
+                        \textbf{Similar to calculus}
+                        \begin{itemize}
+                                \item approximation by simpler pieces
+                                \item error control
+                                \item exact areas and volumes
+                        \end{itemize}
+                \end{column}
+                \begin{column}{0.48\textwidth}
+                        \textbf{Different from calculus}
+                        \begin{itemize}
+                                \item no symbolic limit notation
+                                \item no general integral operator
+                                \item proof is case-by-case and geometric
+                        \end{itemize}
+                \end{column}
+        \end{columns}
+
+        \vspace{0.5cm}
+        Exhaustion was not a calculus algorithm. It was a standard of proof for difficult geometric results.
+\end{frame}
+
+\begin{frame}{The Role of Meta-Mathematics}
+        The breakthrough depended on how Greek mathematicians understood mathematics itself.
+
+        \vspace{0.4cm}
+        \begin{itemize}
+                \item They separated \textbf{exact proof} from practical measurement.
+                \item They treated areas and volumes as \textbf{magnitudes} comparable by ratios.
+                \item They accepted indirect proof as a legitimate tool.
+                \item They controlled the infinite through finite logical arguments.
+        \end{itemize}
+
+        \vspace{0.4cm}
+        So the method of exhaustion was not merely a technique. It was a new way of making curved geometry rigorous.
+\end{frame}
+
+\begin{frame}{Afterlife of the Idea}
+        The method of exhaustion did not disappear.
+
+        \vspace{0.3cm}
+        \begin{itemize}
+                \item It influenced later approaches to area and volume.
+                \item It anticipated central ideas of integral calculus.
+                \item It showed that approximation and exact proof can work together.
+        \end{itemize}
+
+        \vspace{0.4cm}
+        \textbf{Historical bridge:}
+        \[
+                \text{Greek exhaustion} \quad \longrightarrow \quad \text{early modern indivisibles} \quad \longrightarrow \quad \text{integral calculus}
+        \]
+
+        \vspace{0.3cm}
+        The ancient Greeks did not have calculus, but they created one of its deepest ancestors.
 \end{frame}
 
 \begin{frame}{Conclusion}
+        \Large
+        The method of exhaustion solved a problem that was both technical and philosophical.
+
+        \vspace{0.5cm}
+        \normalsize
         \begin{itemize}
-                \item The method of exhaustion emerged in Greek
-                        mathematics because Greek mathematicians
-                        demanded proof of a special kind: exact,
-                        deductive, and general.
-                \item The barrier was the rigorous treatment of
-                        curves, areas, and volumes.
-                \item The breakthrough was to approximate these
-                        figures by simpler ones while proving that
-                        the remaining difference can be forced below
-                        any assigned magnitude.
-                \item In this sense, Greek metamathematics --- their
-                        view of what mathematics is --- directly
-                        shaped one of the greatest achievements of
-                        ancient geometry.
+                \item \textbf{Barrier:} curved figures resisted finite geometric measurement.
+                \item \textbf{Breakthrough:} polygonal approximations with rigorous error control.
+                \item \textbf{Meta-mathematics:} proof, ratios, contradiction and exactness mattered more than numerical approximation.
         \end{itemize}
 
-        \vspace{0.6em}
-        \begin{shadowbox}
-                \centering
-                \small The method of exhaustion was not yet calculus,
-                but it made rigorous limit-like reasoning possible
-                centuries before calculus.
-        \end{shadowbox}
+        \vspace{0.4cm}
+        \textbf{Final thesis:} Greek mathematics overcame curves by turning approximation into proof.
 \end{frame}
 
 {
