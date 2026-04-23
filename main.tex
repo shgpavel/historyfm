@@ -1,0 +1,312 @@
+%!TeX program = xelatex
+
+\documentclass[aspectratio=169]{beamer}
+\usepackage[english]{babel}
+\usepackage{fontspec}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{xltxtra}
+\usepackage{hyperref}
+\usepackage{unicode-math}
+\usepackage{tcolorbox}
+\tcbuselibrary{skins}
+\usepackage{tikz}
+
+\setmainfont{IosevkaTerm NFM}
+\setmonofont{IosevkaTerm NFM}
+\setsansfont{IosevkaTerm NFM}
+\setromanfont{IosevkaTerm NFM Italic}
+\setmathfont{Latin Modern Math}
+
+\usetheme{Warsaw}
+\usefonttheme{professionalfonts}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{headline}{}
+\setbeamertemplate{bibliography item}[text]
+
+\definecolor{GrayMain}{RGB}{67,160,71}
+\definecolor{GrayDark}{RGB}{27,94,32}
+\definecolor{GrayAlt}{RGB}{129,199,132}
+
+\definecolor{GrayOne}{RGB}{232,245,233}
+\definecolor{GrayTwo}{RGB}{255,167,38}
+\definecolor{GrayThr}{RGB}{0,137,123}
+
+\definecolor{NearBlack}{RGB}{26,71,42}
+\definecolor{NearWhite}{RGB}{241,248,233}
+\definecolor{AccentGold}{RGB}{255,111,97}
+
+\setbeamercolor{structure}{fg=GrayMain}
+\setbeamercolor{palette primary}{fg=white,bg=GrayDark}
+\setbeamercolor{palette secondary}{fg=white,bg=GrayMain}
+\setbeamercolor{palette tertiary}{fg=white,bg=GrayDark}
+\setbeamercolor{palette quaternary}{fg=white,bg=GrayMain}
+
+\setbeamercolor{title}{fg=white,bg=GrayMain}
+\setbeamercolor{frametitle}{fg=white,bg=GrayMain}
+\setbeamercolor{titlelike}{fg=white,bg=GrayMain}
+
+\setbeamercolor{normal text}{fg=black,bg=white}
+
+\setbeamercolor{block title}{fg=white,bg=GrayDark}
+\setbeamercolor{block body}{fg=black,bg=GrayDark!8}
+
+\setbeamercolor{block title alerted}{fg=white,bg=GrayMain}
+\setbeamercolor{block body alerted}{fg=black,bg=GrayMain!10}
+
+\setbeamercolor{block title example}{fg=white,bg=GrayAlt}
+\setbeamercolor{block body example}{fg=black,bg=GrayOne!30}
+
+\setbeamercolor{itemize item}{fg=GrayDark}
+\setbeamercolor{itemize subitem}{fg=GrayMain}
+\setbeamercolor{enumerate item}{fg=GrayDark}
+
+\setbeamercolor{title in head/foot}{fg=white,bg=GrayDark}
+\setbeamercolor{author in head/foot}{fg=white,bg=NearBlack}
+\setbeamercolor{date in head/foot}{fg=white,bg=GrayTwo}
+
+\newlength{\fttileft}
+\setlength{\fttileft}{\dimexpr(\paperwidth-\textwidth)/2\relax}
+
+\setbeamertemplate{frametitle}{%
+        \nointerlineskip%
+        \hbox to \textwidth{%
+        \hspace*{-\fttileft}%
+        \begin{tikzpicture}[inner sep=0pt, outer sep=0pt]
+                \shade[left color=GrayDark, right color=GrayAlt]
+                        (0,0) rectangle (\paperwidth,0.8);
+                \node[anchor=west, text=white, font=\large]
+                        at (0.3,0.4) {\insertframetitle};
+        \end{tikzpicture}%
+        \hss}%
+}
+
+\setbeamertemplate{footline}{
+        \leavevmode%
+        \hbox{%
+                \begin{beamercolorbox}[wd=.72\paperwidth,ht=2.8ex,dp=1.2ex,leftskip=1em]{title
+                        in head/foot}%
+                        \insertshorttitle
+                \end{beamercolorbox}%
+                \begin{beamercolorbox}[wd=.14\paperwidth,ht=2.8ex,dp=1.2ex,center]{author
+                        in head/foot}%
+                        \insertshortauthor
+                \end{beamercolorbox}%
+                \begin{beamercolorbox}[wd=.14\paperwidth,ht=2.8ex,dp=1.2ex,center]{date
+                        in head/foot}%
+                        \insertframenumber/\inserttotalframenumber
+                \end{beamercolorbox}%
+        }%
+        \vskip0pt%
+}
+
+\newtcolorbox{shadowbox}{
+        enhanced,
+        colback=GrayOne,
+        colframe=white,
+        boxrule=0pt,
+        sharp corners=all,
+        arc=6pt,
+        drop shadow,
+        left=4mm,
+        right=4mm,
+        top=2mm,
+        bottom=2mm
+}
+
+\newtcolorbox{shadowbox2}{
+        enhanced,
+        colback=NearWhite,
+        colframe=white,
+        boxrule=0pt,
+        arc=4pt,
+        outer arc=4pt,
+        fuzzy shadow={0mm}{-1.3mm}{0mm}{0.3mm}{black!30},
+        coltext=NearBlack,
+        halign=center,
+        fontupper=\centering,
+        left=4mm,
+        right=4mm,
+        top=2mm,
+        bottom=2mm
+}
+
+\title{The Method of Exhaustion in Greek Mathematics}
+\subtitle{How Greek Geometry Learned to Handle Curved Figures Rigorously}
+
+\author{Pavel Shago}
+
+\institute{
+        Saint Petersburg State University\\
+        \vspace{0.2cm}
+        History of Mathematics in English
+}
+
+\date{\small April 24}
+
+\begin{document}
+
+\frame{\titlepage}
+
+\begin{frame}{Thesis of the Talk}
+\begin{shadowbox2}
+\small In one sentence: the Greeks overcame a geometric barrier by inventing a rigorous way to control an apparently infinite process through finite constructions.
+\end{shadowbox2}
+\vspace{0.4em}
+\begin{itemize}
+    \item \textbf{Historical period and region:} Classical and Hellenistic Greece, roughly 5th--3rd century BCE.
+    \item \textbf{Barrier:} Greek mathematicians needed a rigorous way to compare and measure \emph{curved} figures such as circles, segments, and spheres.
+    \item \textbf{Breakthrough:} the \textbf{method of exhaustion}, associated above all with \textbf{Eudoxus} and later developed by \textbf{Archimedes}.
+    \item \textbf{Main claim:} this breakthrough became possible because Greek mathematics treated proof, definition, and logical deduction as the foundation of mathematical knowledge.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{What Was the Problem?}
+\begin{itemize}
+    \item For polygons, areas could be studied by cutting, rearranging, and comparing sides.
+    \item But what about a \textbf{circle}, a \textbf{sphere}, or the \textbf{segment of a parabola}? These are not made of straight edges.
+    \item Simple visual intuition was not enough for Greek standards of proof.
+    \item The key difficulty was this: \textbf{how can one reason rigorously about a figure that cannot be exactly decomposed into finitely many straight pieces?}
+\end{itemize}
+
+\vspace{0.6em}
+\begin{shadowbox}
+\small \textbf{Barrier:} geometry had reached the point where old finite methods were no longer sufficient, but a fully developed theory of limits did not yet exist.
+\end{shadowbox}
+\end{frame}
+
+\begin{frame}{The Greek Mathematical Mindset}
+\begin{itemize}
+    \item Greek mathematics valued \textbf{proof} over successful calculation.
+    \item Mathematical objects were understood mainly in \textbf{geometric} terms: lengths, ratios, areas, volumes.
+    \item Infinity was treated cautiously. Greek mathematicians usually accepted only \textbf{potential infinity}: a process may continue indefinitely, but one should avoid assuming a completed infinite object.
+    \item This is the \textbf{metamathematical background} of the method of exhaustion: one must justify every claim by a chain of definitions, propositions, and contradictions.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Why Earlier Methods Were Not Enough}
+\begin{itemize}
+    \item A rough measurement of a circle can be obtained by drawing polygons inside it.
+    \item However, a rough approximation is not yet a \textbf{proof}.
+    \item Greek mathematics needed a method showing that the gap between the polygon and the curved figure can be made \textbf{smaller than any assigned magnitude}.
+    \item In other words, the problem was not only computational but also \textbf{logical}: why is approximation good enough to establish an exact theorem?
+\end{itemize}
+
+\vspace{0.6em}
+\begin{shadowbox2}
+\small This is precisely where the method of exhaustion enters.
+\end{shadowbox2}
+\end{frame}
+
+\begin{frame}{The Core Idea of Exhaustion}
+\begin{columns}[T]
+\column{0.56\textwidth}
+\begin{itemize}
+    \item Start with a figure whose area or volume is hard to determine exactly.
+    \item Construct a sequence of simpler figures inside it (or around it), usually polygons or polyhedra.
+    \item Repeatedly refine them so that the remaining difference becomes smaller and smaller.
+    \item Then use a \textbf{proof by contradiction}: assume the target magnitude differs from the proposed value by some positive amount; show that the refined construction eventually makes this impossible.
+\end{itemize}
+
+\column{0.44\textwidth}
+\begin{shadowbox}
+\centering
+\vspace{0.2em}
+\large $A_{\text{inner}} < A_{\text{curve}} < A_{\text{outer}}$
+
+\vspace{0.4em}
+\footnotesize Refine the bounds until no positive gap can remain.
+\end{shadowbox}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Eudoxus: The Conceptual Breakthrough}
+\begin{itemize}
+    \item \textbf{Eudoxus of Cnidus} is usually credited with giving the method its rigorous form.
+    \item His theory of proportion allowed Greek mathematicians to compare magnitudes without reducing everything to arithmetic with numbers.
+    \item This mattered because Greek geometry had already encountered \textbf{incommensurable magnitudes}; not every ratio could be expressed by whole numbers.
+    \item The method of exhaustion therefore rests on a deeper foundation: rigorous comparison of magnitudes, not merely practical measurement.
+\end{itemize}
+
+\vspace{0.5em}
+\begin{shadowbox}
+\small So the breakthrough was not a trick, but a new standard of reasoning.
+\end{shadowbox}
+\end{frame}
+
+\begin{frame}{Euclid and the Formal Framework}
+\begin{itemize}
+    \item In \emph{Elements}, especially Book V and Book XII, the method appears in a more systematic and axiomatic form.
+    \item Euclid does not speak in the language of modern limits, but he provides a framework in which repeated subdivision and comparison become fully rigorous.
+    \item This shows the Greek ideal clearly: mathematics should proceed from definitions and propositions, not from numerical guesswork.
+\end{itemize}
+
+\vspace{0.6em}
+\begin{shadowbox}
+\small \textbf{Interpretation:} the method of exhaustion is a product of Greek \emph{metamathematics} --- of their beliefs about what counts as a legitimate mathematical argument.
+\end{shadowbox}
+\end{frame}
+
+\begin{frame}{Archimedes: Exhaustion in Action}
+\begin{columns}[T]
+\column{0.58\textwidth}
+\begin{itemize}
+    \item \textbf{Archimedes} used the method with extraordinary power.
+    \item He applied it to the area of a circle, the volume and surface area of a sphere, and the quadrature of the parabola.
+    \item In modern language, his arguments often look strikingly close to integral reasoning.
+    \item But the important historical point is this: Archimedes remained entirely within the Greek demand for geometric rigor.
+\end{itemize}
+
+\column{0.42\textwidth}
+\begin{shadowbox}
+\small \textbf{Examples:}
+\vspace{0.2em}
+\footnotesize
+\begin{itemize}
+    \item inscribed and circumscribed polygons for the circle;
+    \item successive triangles in the quadrature of the parabola.
+\end{itemize}
+\end{shadowbox}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Why Was This a Real Breakthrough?}
+\begin{enumerate}
+    \item It made it possible to prove exact results about curved figures.
+    \item It showed how an indefinitely repeatable process can produce certainty without invoking a completed actual infinity.
+    \item It connected difficult geometric problems with a general logical method.
+\end{enumerate}
+
+\vspace{0.7em}
+\begin{shadowbox2}
+\small \textbf{Main point:} the method of exhaustion overcame not only a geometric obstacle, but also a philosophical one --- how to speak rigorously about the infinitely divisible.
+\end{shadowbox2}
+\end{frame}
+
+\begin{frame}{Conclusion}
+\begin{itemize}
+    \item The method of exhaustion emerged in Greek mathematics because Greek mathematicians demanded proof of a special kind: exact, deductive, and general.
+    \item The barrier was the rigorous treatment of curves, areas, and volumes.
+    \item The breakthrough was to approximate these figures by simpler ones while proving that the remaining difference can be forced below any assigned magnitude.
+    \item In this sense, Greek metamathematics --- their view of what mathematics is --- directly shaped one of the greatest achievements of ancient geometry.
+\end{itemize}
+
+\vspace{0.6em}
+\begin{shadowbox}
+\centering
+\small The method of exhaustion was not yet calculus, but it made rigorous limit-like reasoning possible centuries before calculus.
+\end{shadowbox}
+\end{frame}
+
+{
+\setbeamertemplate{frametitle}{}
+\begin{frame}
+\vspace*{\fill}
+\begin{center}
+{\LARGE Thanks for your attention}
+\end{center}
+\vspace*{\fill}
+\end{frame}
+}
+
+\end{document}

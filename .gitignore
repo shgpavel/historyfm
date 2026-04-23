@@ -1,0 +1,7 @@
+# Keep only TeX sources, rendered PDFs, and image assets in TeX project trees.
+*
+!*.tex
+!*.pdf
+!**/*.png
+!**/*.jpg
+!**/*.pdf
