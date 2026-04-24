@@ -194,6 +194,45 @@
 \end{frame}
 
 
+\begin{frame}{Other Civilizations Had Numbers}
+        \begin{columns}
+                \begin{column}{0.52\textwidth}
+                        Babylonian scribes fixed the ratio at
+                        $3$ on YBC 7302 (c. 1800 BCE) and at
+                        $\tfrac{25}{8}$ on a Susa tablet, read
+                        from a hexagon inscribed in its circle.
+
+                        \vspace{0.2em}
+                        The \emph{Śulba Sūtras} (c. 800--500 BCE)
+                        prescribe circle-squaring recipes for
+                        altars, embedding a ratio of about
+                        $3.088$. Āryabhaṭa (499 CE) recorded
+                        $\tfrac{62832}{20000} = 3.1416$ and
+                        called it \emph{āsanna}, silent on
+                        direction or error.
+
+                        \vspace{0.2em}
+                        Numbers without theorems. No error
+                        bound, no rational/irrational verdict,
+                        no proof the value is too high or low.
+                \end{column}
+                \begin{column}{0.44\textwidth}
+                        \centering
+                        \includegraphics[height=4.2cm]{refs/YBC7289.jpg}
+
+                        {\scriptsize YBC 7289. $\sqrt{2}$ to six
+                        sexagesimal digits on a unit-square
+                        diagonal.}
+                \end{column}
+        \end{columns}
+
+        \vspace{0.2em}
+        The Greek move was orthogonal. Not a better number. A
+        \emph{proven enclosure}. From \emph{what is the ratio}
+        to \emph{what can be proved about it}.
+\end{frame}
+
+
 \begin{frame}{The Barrier}
         \begin{center}
                 \begin{tikzpicture}[
@@ -260,7 +299,7 @@
         \vspace{0.1em}
         Two ratios are equal iff they agree on \emph{every} rational
         test. The ratio is defined by its behaviour against all
-        rationals no numerical value is ever produced.
+        rationals. No numerical value is ever produced.
 
         \vspace{0.2em}
         \textcolor{TealThr}{\textbf{Modern echo.}} This is Dedekind's
@@ -270,8 +309,11 @@
 
 
 \begin{frame}{Controlling the Infinite With the Finite}
-        One technical lemma does the heavy lifting.
-        The \emph{Archimedean halving property}, due to Eudoxus:
+        Eudoxus extracted a single lemma for the heavy
+        lifting. It opens Book~X of the \emph{Elements} and
+        Archimedes reinstates it as a postulate of \emph{On the
+        Sphere and Cylinder}, calling it the lemma ``assumed by
+        our predecessors.''
 
         \begin{block}{\emph{Elements}, Book X, Proposition 1}
                 If from any magnitude there be subtracted a part not
@@ -282,39 +324,41 @@
         \end{block}
 
         \begin{columns}
-                \begin{column}{0.55\textwidth}
-                        Modern restatement: for every $\varepsilon>0$
-                        and every magnitude $M$, there exists $n$ with
-                        $\bigl(\tfrac{1}{2}\bigr)^{n} M < \varepsilon$.
-                        Finite. No ``as $n \to \infty$.'' Rather:
-                        \textbf{for every tolerance, eventually}.
+                \begin{column}{0.58\textwidth}
+                        \small
+                        The object is a \emph{magnitude}
+                        (μέγεθος). A length, area, or solid. Not
+                        a number. ``Eventually'' means after
+                        finitely many halvings, the count chosen
+                        once the assigned magnitude is named.
                 \end{column}
-                \begin{column}{0.42\textwidth}
+                \begin{column}{0.4\textwidth}
                         \centering
-                        \begin{tikzpicture}[scale=0.42]
+                        \begin{tikzpicture}[scale=0.35]
                                 \fill[GreenDark] (0,5) rectangle (8,5.6);
                                 \fill[GreenDark] (0,4) rectangle (4,4.6);
                                 \fill[GreenDark] (0,3) rectangle (2,3.6);
                                 \fill[GreenDark] (0,2) rectangle (1,2.6);
                                 \fill[GreenDark] (0,1) rectangle (0.5,1.6);
                                 \fill[GreenDark] (0,0) rectangle (0.25,0.6);
-                                \node[left, font=\tiny] at (0,5.3) {$M$};
-                                \node[left, font=\tiny] at (0,4.3) {$M/2$};
-                                \node[left, font=\tiny] at (0,3.3) {$M/4$};
-                                \node[left, font=\tiny] at (0,2.3) {$M/8$};
-                                \node[left, font=\tiny] at (0,1.3) {$M/16$};
-                                \node[left, font=\tiny] at (0,0.3) {$M/32$};
+                                \node[left, font=\tiny] at (0,5.3) {magnitude};
+                                \node[left, font=\tiny] at (0,4.3) {half};
+                                \node[left, font=\tiny] at (0,3.3) {quarter};
+                                \node[left, font=\tiny] at (0,2.3) {eighth};
+                                \node[left, font=\tiny] at (0,1.3) {sixteenth};
+                                \node[left, font=\tiny] at (0,0.3) {\ldots};
                                 \draw[AccentGold, very thick, dashed]
                                 (-0.3,0.9) -- (8,0.9);
-                                \node[font=\small, text=AccentGold]
-                                at (7.5,1.35) {$\varepsilon$};
+                                \node[font=\tiny, text=AccentGold]
+                                at (5.5,1.35) {assigned};
                         \end{tikzpicture}
                 \end{column}
         \end{columns}
 
-        \textcolor{TealThr}{\textbf{Modern echo.}} The
-        $\varepsilon$-$\delta$ discipline of Cauchy (1821 CE) and
-        Weierstrass, 2300 years early.
+        \textcolor{TealThr}{\textbf{Modern echo.}} Now the
+        \emph{Archimedean property}. Cauchy's
+        $\varepsilon$-$\delta$ discipline (1821 CE) reuses its
+        logical form.
 \end{frame}
 
 
@@ -418,7 +462,7 @@
 \end{frame}
 
 
-\begin{frame}{Archimedes Traps \texorpdfstring{$\pi$}{pi} Between Two Polygons}
+\begin{frame}{Archimedes Traps the Circle's Ratio Between Two Polygons}
         \begin{block}{\emph{Measurement of a Circle}, Proposition 3
         (250 BCE)}
                 The perimeter of every circle exceeds three times the
@@ -439,8 +483,8 @@
                         
                         \vspace{0.7em}
                         Four-digit accuracy with a \emph{proven
-                        enclosure} it is not even a measurement, a theorem
-                        about the ratio location.
+                        enclosure}. Not a measurement but a theorem
+                        locating the ratio.
                 \end{column}
                 
                 \begin{column}{0.42\textwidth}
@@ -496,21 +540,54 @@
                 The area of a parabolic segment equals
                 $\tfrac{4}{3}$ of its inscribed triangle $T$
         \end{block}
-        
-        Modern view
-        \[
-                T\Big(1 + \tfrac{1}{4} + \tfrac{1}{16} +
-                \tfrac{1}{64} + \cdots\Big) = \tfrac{4}{3}\,T.
-        \]
 
-        Archimedes' view\\
-        for every $n$, he filled the segment with
-        triangles of total area
-        \[
-                T\Big(1 + \tfrac{1}{4} + \cdots + \tfrac{1}{4^{\,n}}\Big)
-                \quad\text{with remainder at most}\quad
-                \tfrac{1}{3}\cdot\tfrac{1}{4^{\,n}}\,T.
-        \]
+        \begin{columns}
+                \begin{column}{0.42\textwidth}
+                        \centering
+                        \begin{tikzpicture}[scale=1.6]
+                                \fill[GreenOne]
+                                plot[domain=-1:1, samples=60]
+                                (\x, {1-\x*\x}) -- (1,0) -- (-1,0) -- cycle;
+                                \fill[AccentGold!35]
+                                (-1,0) -- (-0.5,0.75) -- (0,1) -- cycle;
+                                \fill[AccentGold!35]
+                                (0,1) -- (0.5,0.75) -- (1,0) -- cycle;
+                                \draw[GreenDark, thick, domain=-1:1,
+                                samples=60] plot (\x, {1-\x*\x});
+                                \draw[TealThr, thick] (-1,0) -- (1,0);
+                                \draw[GreenDark, thick]
+                                (-1,0) -- (0,1) -- (1,0);
+                                \draw[AccentGold, thick]
+                                (-1,0) -- (-0.5,0.75) -- (0,1)
+                                -- (0.5,0.75) -- (1,0);
+                                \node[font=\scriptsize,
+                                text=GreenDark] at (0, 0.35) {$T$};
+                                \node[font=\tiny,
+                                text=AccentGold!60!black]
+                                at (-0.45, 0.97) {$T/8$};
+                                \node[font=\tiny,
+                                text=AccentGold!60!black]
+                                at (0.45, 0.97) {$T/8$};
+                        \end{tikzpicture}
+                \end{column}
+                \begin{column}{0.55\textwidth}
+                        \small
+                        Modern view
+                        \[
+                                T\Big(1 + \tfrac{1}{4} +
+                                \tfrac{1}{16} + \cdots\Big)
+                                = \tfrac{4}{3}\,T.
+                        \]
+
+                        Archimedes' view. For every $n$,
+                        \[
+                                T\Big(1 + \tfrac{1}{4} + \cdots
+                                + \tfrac{1}{4^{\,n}}\Big)
+                        \]
+                        with remainder at most
+                        $\tfrac{1}{3}\cdot\tfrac{1}{4^{\,n}}\,T$.
+                \end{column}
+        \end{columns}
 
         Archimedes never summed an infinite series. He wrote a
         \emph{finite identity} together with a \emph{remainder that
@@ -584,8 +661,9 @@
 
 
 \begin{frame}{Conclusion}
-        The method of exhaustion is often called ``ancient integral
-        calculus.'' That label is too loose and too modest.
+        Textbooks often file exhaustion under ``ancient integral
+        calculus.'' The label is loose, and it understates what was
+        achieved.
 
         \vspace{0.4cm}
         \begin{shadowbox}
