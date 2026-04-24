@@ -248,12 +248,12 @@
                 ἢ ἅμα ἴσα ᾖ ἢ ἅμα ἐλλείπῃ ληφθέντα κατάλληλα.
 
                 Or in modern notation:\
-                $a:b = c:d$ iff for all positive integers $m,n$,
+                $a:b = c:d$ iff for all positive integers $m, n$
                 \vspace{-1em}
                 \[
                         ma > nb \iff mc > nd,
                         \qquad
-                        ma = nb \iff mc = nd.
+                        ma = nb \iff mc = nd
                 \]
         \end{block}
         
@@ -270,16 +270,15 @@
 
 
 \begin{frame}{Controlling the Infinite With the Finite}
-        One technical lemma does the heavy lifting the
-        \emph{Archimedean halving property}, attributed to Eudoxus and
-        preserved in Euclid:
+        One technical lemma does the heavy lifting.
+        The \emph{Archimedean halving property}, due to Eudoxus:
 
         \begin{block}{\emph{Elements}, Book X, Proposition 1}
                 If from any magnitude there be subtracted a part not
                 less than its half, and from the remainder a part not
                 less than its half, and so on continually, there will
                 at length remain a magnitude less than any assigned
-                magnitude of the same kind.
+                magnitude of the same kind
         \end{block}
 
         \begin{columns}
@@ -287,15 +286,12 @@
                         Modern restatement: for every $\varepsilon>0$
                         and every magnitude $M$, there exists $n$ with
                         $\bigl(\tfrac{1}{2}\bigr)^{n} M < \varepsilon$.
-
-                        \vspace{0.1cm}
-                        The statement is \emph{finite}. Never ``as $n
-                        \to \infty$.'' Rather: \textbf{for every
-                        tolerance, eventually}.
+                        Finite. No ``as $n \to \infty$.'' Rather:
+                        \textbf{for every tolerance, eventually}.
                 \end{column}
                 \begin{column}{0.42\textwidth}
                         \centering
-                        \begin{tikzpicture}[scale=0.48]
+                        \begin{tikzpicture}[scale=0.42]
                                 \fill[GreenDark] (0,5) rectangle (8,5.6);
                                 \fill[GreenDark] (0,4) rectangle (4,4.6);
                                 \fill[GreenDark] (0,3) rectangle (2,3.6);
@@ -317,88 +313,139 @@
         \end{columns}
 
         \textcolor{TealThr}{\textbf{Modern echo.}} The
-        $\varepsilon$-$\delta$ discipline of Cauchy (1821) and
+        $\varepsilon$-$\delta$ discipline of Cauchy (1821 CE) and
         Weierstrass, 2300 years early.
 \end{frame}
 
+
 \begin{frame}{The Exhaustion Schema}
-        To prove $\operatorname{Area}(\text{curved}) = A$:
+        To prove the area of a curved figure equals $A$ rule out
+        both strict inequalities.
 
-        \begin{block}{Upper branch}
-                Suppose the area exceeds $A$. Inscribe polygons,
-                halving the uncovered region each step, until the
-                remainder is less than (area~$-\,A$). The inscribed
-                polygon then has area greater than $A$ ---
-                impossible. Contradiction.
-        \end{block}
+        \begin{columns}
+                \begin{column}{0.48\textwidth}
+                        \begin{block}{If area $> A$}
+                                Inscribe polygons, halving the
+                                uncovered region each step, until the
+                                remainder falls below $A$.
+                                The inscribed polygon then exceeds
+                                $A$ which is impossible
+                        \end{block}
+                \end{column}
+                
+                \begin{column}{0.48\textwidth}
+                        \begin{block}{If area $< A$}
+                                Circumscribe polygons, their excess
+                                shrinks below $A$. The
+                                circumscribed polygon then falls below
+                                $A$. Same contradiction, reversed
+                        \end{block}
+                \end{column}
+        \end{columns}
 
-        \begin{block}{Lower branch}
-                Suppose the area is less than $A$. Circumscribe
-                polygons; their excess shrinks below $(A -
-                \text{area})$. Same contradiction, from the other side.
-        \end{block}
+        \begin{center}
+                \begin{tikzpicture}[scale=1]
+                        \draw[thick, GreenDark] (-3.6,0) -- (3.6,0);
+                        \fill[AccentGold] (0,0) circle (2.5pt);
+                        \node[below, font=\scriptsize,
+                        text=AccentGold] at (0,-0.1) {$A$};
+                        \draw[->, thick, GreenDark]
+                        (2.4,0.5) -- (0.25,0.08);
+                        \node[above, font=\tiny, text=GreenDark] at
+                        (2.4,0.5) {inscribed $>A$: $\bot$};
+                        \draw[->, thick, TealThr]
+                        (-2.4,0.5) -- (-0.25,0.08);
+                        \node[above, font=\tiny, text=TealThr] at
+                        (-2.4,0.5) {circumscribed $<A$: $\bot$};
+                \end{tikzpicture}
+        \end{center}
 
         Therefore the area equals $A$. \textbf{No limit is ever
-        taken.} The word ``infinite'' does not appear in the proof.
+                taken}.
 
-        \vspace{0.1cm}
         \textcolor{TealThr}{\textbf{Modern echo.}} Riemann
         integration: $\underline{S}_n \le \int f \le \overline{S}_n$,
         and the gap shrinks.
 \end{frame}
 
+
 \begin{frame}{Euclid Applies the Machine}
-        \emph{Elements} XII.2:
-        \[
-                \frac{\operatorname{Area}(C_1)}{\operatorname{Area}(C_2)}
-                \;=\; \frac{d_1^{\,2}}{d_2^{\,2}}.
-        \]
+        \begin{block}{\emph{Elements}, Book XII, Proposition 2}
+                Circles are to one another as the squares on their
+                diameters
+        \end{block}
 
-        \vspace{0.3cm}
-        Notice what this result \emph{is} and \emph{is not}:
-        \begin{itemize}
-                \item \textbf{It is not} a value of $\pi$. No number
-                        for circle area appears.
-                \item \textbf{It is} a structural law: the area of
-                        any circle scales as the square of any linear dimension.
-        \end{itemize}
+        \vspace{1.4em}
+        \begin{columns}
+                \begin{column}{0.56\textwidth}
+                        Notice what this result \emph{is} and \emph{is not}
+                        \begin{itemize}
+                                \item \textbf{Not} a value of $\pi$.
+                                        No number for circular area
+                                        ever appears.
+                                \item \textbf{A structural law}:
+                                        circles behave \emph{relative
+                                        to each other}, scaling as
+                                        squares on any linear
+                                        dimension.
+                        \end{itemize}
 
-        \vspace{0.3cm}
-        Euclid proved how circles behave \emph{relative to each
-        other}, without ever computing the constant that relates a
-        circle to a square. The law is invariant; the constant is a
-        separate, harder question.
+                        \vspace{0.1cm}
+                        The constant that relates a circle to a square
+                        is a separate, harder question left to
+                        Archimedes.
+                \end{column}
 
-        \vspace{0.3cm}
-        \textcolor{TealThr}{\textbf{Modern echo.}} This is
-        dimensional analysis: $A \sim L^2$ as a provable statement of
-        geometry, not a convention of units.
+                \begin{column}{0.42\textwidth}
+                        \centering
+                        \begin{tikzpicture}[scale=0.8]
+                                \draw[GreenDark, thick] (0,0) circle (0.7);
+                                \draw[AccentGold, thick] (-0.7,0) -- (0.7,0);
+                                \draw[TealThr, thick]
+                                (-0.7,-2.15) rectangle (0.7,-0.75);
+
+                                \draw[GreenDark, thick] (3.4,0) circle (1.2);
+                                \draw[AccentGold, thick] (2.2,0) -- (4.6,0);
+                                \draw[TealThr, thick]
+                                (2.2,-3.65) rectangle (4.6,-1.25);
+
+                                \node[font=\scriptsize,
+                                text=GreenDark] at (1.7,-4.15)
+                                {circles $::$ squares on diameters};
+                        \end{tikzpicture}
+                \end{column}
+        \end{columns}
 \end{frame}
 
+
 \begin{frame}{Archimedes Traps \texorpdfstring{$\pi$}{pi} Between Two Polygons}
+        \begin{block}{\emph{Measurement of a Circle}, Proposition 3
+        (250 BCE)}
+                The perimeter of every circle exceeds three times the
+                diameter by less than one-seventh, and by more than
+                ten seventy-oneths, of the diameter
+        \end{block}
+
+        \vspace{0.5em}
         \begin{columns}
                 \begin{column}{0.55\textwidth}
-                        Archimedes (\emph{Measurement of a Circle},
-                        $\sim$250\,BCE) applied exhaustion to a
-                        96-gon --- six doublings from a hexagon:
+                        Archimedes applied exhaustion to a 96-gon
+                        (six doublings from a hexagon) bounding the
+                        ratio above and below.
 
-                        \vspace{0.2cm}
-                        \[
-                                3 + \tfrac{10}{71} \;<\; \pi \;<\; 3
-                                + \tfrac{1}{7}
-                        \]
-                        \[
-                                3.14085\ldots \;<\; \pi \;<\; 3.14286\ldots
-                        \]
-
-                        \vspace{0.15cm}
+                        \vspace{0.7em}
+                        Modern restatement:
+                        $3 + \tfrac{10}{71} < \pi < 3 + \tfrac{1}{7}$
+                        
+                        \vspace{0.7em}
                         Four-digit accuracy with a \emph{proven
-                        enclosure}. Not a measurement --- a theorem
-                        about the location of $\pi$.
+                        enclosure} it is not even a measurement, a theorem
+                        about the ratio location.
                 \end{column}
-                \begin{column}{0.45\textwidth}
+                
+                \begin{column}{0.42\textwidth}
                         \centering
-                        \begin{tikzpicture}[scale=0.9]
+                        \begin{tikzpicture}[scale=0.85]
                                 \def\R{1.6}
                                 \pgfmathsetmacro{\Rc}{\R/cos(30)}
                                 \draw[GreenDark, thick] (0,0) circle (\R);
@@ -410,17 +457,12 @@
                                 (180:\Rc) -- (240:\Rc) -- (300:\Rc) -- cycle;
                                 \node[text=AccentGold,
                                 font=\scriptsize] at (0,-2.2)
-                                {inscribed: lower bound};
+                                {inscribed (lower bound)};
                                 \node[text=TealThr, font=\scriptsize]
-                                at (0,-2.5) {circumscribed: upper bound};
+                                at (0,-2.5) {circumscribed (upper bound)};
                         \end{tikzpicture}
                 \end{column}
         \end{columns}
-
-        \vspace{0.15cm}
-        \textcolor{TealThr}{\textbf{Modern echo.}} Interval
-        arithmetic and verified numerics: every computed value comes
-        with a proven enclosure. Archimedes' method, on hardware.
 \end{frame}
 
 \begin{frame}{What Archimedes Did Not Publish}
