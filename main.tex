@@ -465,43 +465,46 @@
         \end{columns}
 \end{frame}
 
+
 \begin{frame}{What Archimedes Did Not Publish}
-        Archimedes wrote a private letter to Eratosthenes ---
-        \emph{The Method of Mechanical Theorems} --- lost for over
-        1000 years, recovered in 1906 from a Byzantine palimpsest.
+        Archimedes sent Eratosthenes a private letter, \emph{The
+        Method of Mechanical Theorems}, recovered in 1906 by J.L.
+        Heiberg from a Byzantine palimpsest overwritten with a prayer book.
 
-        \vspace{0.2cm}
-        In it, he sliced figures into \emph{indivisibles} (infinitely
-        many parallel lines) and \emph{balanced them on a lever} to
-        guess areas and volumes. Mechanical intuition, not geometric proof.
+        \vspace{0.1cm}
+        Procedure. Slice a figure into parallel sections, treat each
+        as an \emph{indivisible} of definite weight, hang them on a
+        lever opposite sections of known magnitude. Arms balance,
+        and fulcrum distances deliver the unknown. So the sphere is
+        two-thirds its circumscribing cylinder, the parabolic
+        segment four-thirds its inscribed triangle.
 
-        \vspace{0.2cm}
         \begin{shadowbox}
                 ``It is easier to find the proof once one has
                 acquired some knowledge of the questions by the
-                method.'' \hfill --- Archimedes to Eratosthenes
+                method.'' \hfill Archimedes to Eratosthenes
         \end{shadowbox}
 
-        \vspace{0.15cm}
-        Archimedes used indivisibles to \textbf{discover}, then
-        rewrote results as exhaustion proofs to \textbf{publish}.
-        Discovery and certification separated --- the same split
-        between numerical experiment and formal verification today.
+        Neither result was published in this form. Each was
+        re-derived by exhaustion first. Indivisibles for discovery,
+        double-contradiction for proof.
 \end{frame}
 
-\begin{frame}{A Geometric Series, Without Summing Infinitely}
-        \emph{Quadrature of the Parabola}: the area of a parabolic
-        segment equals $\tfrac{4}{3}$ of its inscribed triangle $T$.
 
-        \vspace{0.3cm}
-        Modern view:
+\begin{frame}{A Geometric Series, Without Summing Infinitely}
+        \begin{block}{\emph{Quadrature of the Parabola}}
+                The area of a parabolic segment equals
+                $\tfrac{4}{3}$ of its inscribed triangle $T$
+        \end{block}
+        
+        Modern view
         \[
                 T\Big(1 + \tfrac{1}{4} + \tfrac{1}{16} +
                 \tfrac{1}{64} + \cdots\Big) = \tfrac{4}{3}\,T.
         \]
 
-        \vspace{0.3cm}
-        Archimedes' view: for every $n$, he filled the segment with
+        Archimedes' view\\
+        for every $n$, he filled the segment with
         triangles of total area
         \[
                 T\Big(1 + \tfrac{1}{4} + \cdots + \tfrac{1}{4^{\,n}}\Big)
@@ -509,70 +512,76 @@
                 \tfrac{1}{3}\cdot\tfrac{1}{4^{\,n}}\,T.
         \]
 
-        \vspace{0.2cm}
-        He never wrote an infinite sum. He wrote a \emph{finite
-        identity} plus an \emph{error bound that can be driven below
-        any magnitude}. Same answer; no appeal to infinity;
-        bulletproof Greek proof.
+        Archimedes never summed an infinite series. He wrote a
+        \emph{finite identity} together with a \emph{remainder that
+        can be driven below any magnitude}. The two together pin the
+        answer, and infinity never enters the proof.
 
-        \vspace{0.3cm}
-        \textcolor{TealThr}{\textbf{Modern echo.}} Partial sum plus
-        remainder bound is still how convergence is proved.
+        \vspace{0.2cm}
+        \textcolor{TealThr}{\textbf{Modern echo.}} A partial sum
+        with a shrinking remainder bound is still how we prove
+        convergence today.
 \end{frame}
 
-\begin{frame}{The Meta-Mathematical Mechanism}
-        Three commitments of Greek mathematics made the method possible:
+
+\begin{frame}{Three Principles Behind the Method}
+        Three principles of Greek mathematics made the whole machinery work.
 
         \vspace{0.4cm}
         \begin{enumerate}
-                \item \textbf{Magnitude over number.} Ratios of
-                        geometric magnitudes, not decimal values,
-                        were the primary objects. Irrationals were
-                        not a problem to be solved but a type to be handled.
+                \item \textbf{Magnitude over number.} The primary
+                        objects were ratios of geometric magnitudes,
+                        not decimal values. An irrational was not a
+                        defect to be removed but a kind of thing to
+                        be handled.
 
                         \vspace{0.15cm}
                 \item \textbf{Proof over computation.} An
-                        approximation without a certified error bound
-                        was worthless. A bound without a computed
-                        value was a theorem.
+                        approximation without a certified error
+                        bound counted for nothing. A bound with no
+                        computed value counted as a theorem.
 
                         \vspace{0.15cm}
                 \item \textbf{Finite control over infinite process.}
-                        A shrinking sequence is handled by the law it
-                        obeys, never by the limit point it approaches.
+                        A shrinking sequence was handled through the
+                        law it obeys, never through the limit point
+                        it approaches.
         \end{enumerate}
 
         \vspace{0.3cm}
-        The method of exhaustion is these three commitments made
-        procedural. Remove any one and the method collapses: it is
-        inseparable from the philosophy of proof that produced it.
+        The method of exhaustion is those three principles turned
+        procedural. It is inseparable from the philosophy of proof
+        that produced it.
 \end{frame}
 
+
 \begin{frame}{Modern Descendants}
-        The schema is the operational core of much of modern mathematics:
+        The schema sits at the operational core of modern mathematics.
 
         \vspace{0.15cm}
         \begin{itemize}
-                \item \textbf{Real numbers} (Dedekind, 1872) ---
+                \item \textbf{Dedekind real numbers.} A
                         direct formalisation of Eudoxus' ratios.
                 \item \textbf{$\varepsilon$-$\delta$ analysis}
-                        (Cauchy, Weierstrass) --- the Archimedean
-                        lemma as the definition of limit.
-                \item \textbf{Riemann integration} --- the curved
-                        region bracketed by lower and upper sums; the
-                        gap shrinks.
-                \item \textbf{Interval arithmetic \& verified
-                        numerics} --- Archimedes' two-sided
-                        enclosure, now standard in computer-assisted proofs.
-                \item \textbf{A posteriori error estimates in FEM}
-                        --- approximate the solution, certify a
-                        bound. Industrial scale.
+                        (Cauchy, Weierstrass). The Archimedean
+                        lemma turned into the definition of a limit.
+                \item \textbf{Riemann integration.} Lower and upper
+                        sums bracket the curved region, and the gap
+                        is driven to nothing.
+                \item \textbf{Interval arithmetic and verified
+                        numerics.} Archimedes' two-sided enclosure,
+                        now standard in computer-assisted proofs.
+                \item \textbf{A posteriori error estimates in FEM.}
+                        A computed solution ships with a rigorous
+                        bound on its own error, and the mesh is
+                        refined wherever that bound is largest.
         \end{itemize}
 
         \vspace{0.15cm}
-        In every case the ancient pattern is preserved: approximate
-        by simpler objects, and \emph{prove the error shrinks}.
+        In every case the ancient pattern survives. Approximate by
+        simpler objects, then \emph{prove the error shrinks}.
 \end{frame}
+
 
 \begin{frame}{Conclusion}
         The method of exhaustion is often called ``ancient integral
@@ -586,12 +595,14 @@
         \end{shadowbox}
 
         \vspace{0.4cm}
-        That discipline --- approximate, bound, contradict --- is
-        still the proof discipline of modern numerical analysis and
-        real analysis. Greek mathematics did not find a way to
-        \emph{compute} curves; it found a way to \emph{reason} about
-        them. The computing came later; the reasoning is still ours.
+        Approximate, bound, contradict. That triple still runs
+        modern numerical analysis, and its echo is heard throughout
+        real analysis. Greek mathematics did not produce
+        \emph{numbers} for curves. They produced \emph{ratios} and
+        \emph{proofs}. The numbers arrived later. The reasoning is
+        still ours.
 \end{frame}
+
 
 {
         \setbeamertemplate{frametitle}{}
